@@ -1,7 +1,8 @@
 # Comma Code
 # A function that takes a list and returns a string with all items separated by a comma and a space.
-# Insert "and" before the last item and check for empty list [].
+# Insert "and" before last item and check single and empty list [].
 
+# Example List
 spam = ['apples', 'bananas', 'tofu', 'cats','dog',6,6.5,'humans']
 
 

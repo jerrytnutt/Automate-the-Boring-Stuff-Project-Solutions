@@ -24,6 +24,7 @@ grid = [['.', '.', '.', '.', '.', '.'],
 # Use these numbers to perform a reverse/flipped loop for the correct pattern
 
 for i in range(len(grid[0])):
+  # If statement to remove unnecessary spaces
   if i != 0:
     print()
   for j in range(len(grid)):

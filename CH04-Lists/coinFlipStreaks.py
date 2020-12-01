@@ -1,6 +1,7 @@
 # Write a program that Flips a coin 100 times and create a list with the results
-# Find out how often a streak of six heads or six tails comes up in the results "HHHHHH" or "TTTTTT"
-# Loop this experiment 10,000 times
+# Find out if a streak of six heads or six tails comes up in the results "HHHHHH" or "TTTTTT"
+# Loop this experiment 10,000 times and return the probability of a streak
+
 import random
 import re
 
@@ -22,8 +23,8 @@ def coinFips():
     if len(match) > 0:
       streakScore = streakScore +  1
     totalRuns = totalRuns + 1
-    
+
 for i in range(10000):
   coinFips()
- 
+
 print("The Chance of a streak is: {}%".format(round(streakScore/totalRuns * 100)))
