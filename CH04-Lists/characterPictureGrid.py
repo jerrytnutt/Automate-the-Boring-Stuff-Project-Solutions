@@ -1,5 +1,5 @@
 # Character Picture Grid
-# Print out the grid pattern horizontally column by column
+# Print out the grid horizontally column by column
 """
 ..OO.OO..
 .OOOOOOO.
@@ -20,15 +20,14 @@ grid = [['.', '.', '.', '.', '.', '.'],
         ['.', 'O', 'O', '.', '.', '.'],
         ['.', '.', '.', '.', '.', '.']]
 
-# grab len(grid[0]) 6 for the row length and len(grid) 9 for column length
-# Use these numbers to perform a reverse/flipped loop for the correct pattern
+# Get len(grid[0]) 6 for the row length and len(grid) 9 for column length
+# Use these numbers to perform a reverse/flipped loop for the desired pattern
 
-for i in range(len(grid[0])):
-  # If statement to remove unnecessary spaces
-  if i != 0:
+def flip_grid(grid):
+  for i in range(len(grid[0])):
+    for j in range(len(grid)):
+      print(grid[j][i],end='')
     print()
-  for j in range(len(grid)):
-    print(grid[j][i],end='')
 
-
-    
+if __name__ == '__main__':
+  flip_grid(grid)    
