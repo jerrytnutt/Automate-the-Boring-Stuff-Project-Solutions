@@ -1,12 +1,12 @@
 # Chess Dictionary Validator
-# Function that takes a dict argument and returns True or False if dict represents a valid chess board.
+# Function that returns True or False if argument represents a valid chess board.
 # A valid board will have:
   # One black king and one white king. 
-  # Each player can only have at most 16 pieces, at most 8 pawns 
+  # Each player can only have at most 16 pieces, and at most 8 pawns 
   # Pieces must be on a valid space from '1a' to '8h' 
-  # names begin with either a 'w' or 'b' followed by 'pawn', 'knight', 'bishop', 'rook', 'queen', or 'king'.
+  # Names begin with either a 'w' or 'b' followed by 'pawn', 'knight', 'bishop', 'rook', 'queen', or 'king'.
 
-def isValidChessBoard(dict):
+def is_valid_chess_board(board):
     bking = 0
     wking = 0
     bpiece = 0
@@ -14,25 +14,25 @@ def isValidChessBoard(dict):
     wpawn = 0
     bpawn = 0
 
-    validNumbers = ['1','2','3','4','5','6','7','8']
-    validLetters = ['a','b','c','d','e','f','g','h']
-    validPieces = ['pawn', 'knight', 'bishop', 'rook', 'queen', 'king']
+    valid_numbers = ['1','2','3','4','5','6','7','8']
+    valid_letters = ['a','b','c','d','e','f','g','h']
+    valid_pieces = ['pawn', 'knight', 'bishop', 'rook', 'queen', 'king']
 
-    for keys,values in dict.items():
-      if dict[keys] != '' and len(keys) == 2:
-        if dict[keys] == 'bking':
+    for keys,values in board.items():
+      if board[keys] != '' and len(keys) == 2:
+        if board[keys] == 'bking':
           bking += 1 
-        if dict[keys] == 'wking':
+        if board[keys] == 'wking':
           wking += 1 
         # Triple check for correct elements based on letters, numbers and pieces arrays
-        if keys[0] in validLetters and keys[1] in validNumbers and  dict[keys][1:] in validPieces:
-          if dict[keys][0] == 'w':
+        if keys[0] in valid_letters and keys[1] in valid_numbers and  board[keys][1:] in valid_pieces:
+          if board[keys][0] == 'w':
             wpiece +=1
-            if dict[keys][1:] == 'pawn':
+            if board[keys][1:] == 'pawn':
               wpawn += 1
-          elif dict[keys][0] == 'b':
+          elif board[keys][0] == 'b':
             bpiece +=1
-            if dict[keys][1:] == 'pawn':
+            if board[keys][1:] == 'pawn':
               bpawn += 1
           else:
             return False
@@ -46,10 +46,9 @@ def isValidChessBoard(dict):
       return False
     return True
 
-    
-# Example boards        
-print(isValidChessBoard({"h1": "bking", "c6": "wqueen", "g2": "bbishop", "h5": "bqueen", "e3": "wking"}))  # True
-print(isValidChessBoard({"a1": "bpawn", "a2": "wking"}))  # False: no bking
-print(isValidChessBoard({"a1": "bpawn", "a2": "wking","a4":"bking"})) # True
-print(isValidChessBoard({"a1": "wking", "a2": "wking", "3c": "bbishop"}))  #False: Cannot have 2 white kings
-
+if __name__ == '__main__':
+  # Test boards        
+  print(is_valid_chess_board({"h1": "bking", "c6": "wqueen", "g2": "bbishop", "h5": "bqueen", "e3": "wking"}))  # True
+  print(is_valid_chess_board({"a1": "bpawn", "a2": "wking"}))  # False: no bking
+  print(is_valid_chess_board({"a1": "bpawn", "a2": "wking","a4":"bking"})) # True
+  print(is_valid_chess_board({"a1": "wking", "a2": "wking", "3c": "bbishop"}))  #False: Cannot have 2 white kings
