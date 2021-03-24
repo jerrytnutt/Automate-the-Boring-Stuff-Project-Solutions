@@ -1,7 +1,6 @@
 # Fantasy Game Inventory
-# display_inventory that displays any possible “inventory”
-# add_to_Inventory will append addedItems to players inventory
-# The player’s inventory will recieve addedItems and then display the new inventory
+# Create a display_inventory function that displays any possible “inventory”
+# Create an add_to_Inventory function that appends items to players inventory
 
 players_inventory = {'gold coin': 42, 'rope': 1}
 dragon_loot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby','ruby']
@@ -25,5 +24,5 @@ def add_to_Inventory(inventory, addedItems):
 
 if __name__ == '__main__':
   print( add_to_Inventory(players_inventory,dragon_loot) )
-  #print( display_inventory(players_inventory) )
+  
 
