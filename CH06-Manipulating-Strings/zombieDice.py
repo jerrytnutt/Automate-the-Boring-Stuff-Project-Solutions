@@ -1,10 +1,10 @@
 import zombiedice,random
-import zombieBots
+import zombieDiceBots
 
 # Create four zombie bots and run them against the example bots to see how they compare
-# All created zombie bots are imported from the zombieBots.py file
+# All created zombie bots are imported from the zombieDiceBots.py file
 
-# Prototype for all zombie bot classes
+# Prototype class for all zombie bot classes
 class MyZombie:
     def __init__(self, name):
         
@@ -13,7 +13,8 @@ class MyZombie:
     def turn(self, gameState):
         
 
-        diceRollResults = zombiedice.roll() # first roll
+        diceRollResults = zombiedice.roll() 
+        # first roll
         # roll() returns a dictionary with keys 'brains', 'shotgun', and
         # 'footsteps' with how many rolls of each type there were.
         # The 'rolls' key is a list of (color, icon) tuples with the
@@ -22,9 +23,6 @@ class MyZombie:
         # {'brains': 1, 'footsteps': 1, 'shotgun': 1,
         #  'rolls': [('yellow', 'brains'), ('red', 'footsteps'),
         #            ('green', 'shotgun')]}
-
-        
-        
         brains = 0
        
         while diceRollResults is not None:
@@ -43,8 +41,8 @@ zombies = (
     zombiedice.examples.RollsUntilInTheLeadZombie(name='Until Leading'),
     MyZombie(name='My Zombie Bot'),  
     # Three premade example bots and four created bots will be used
-    zombieBots.randomChoice(name='Random Choice'), zombieBots.twoShotguns(name='Two Shot'),
-    zombieBots.randomRolls(name='Number Rolls'), zombieBots.comparisonZombie(name='Comparison Zombie')
+    zombieDiceBots.randomChoice(name='Random Choice'), zombieDiceBots.twoShotguns(name='Two Shot'),
+    zombieDiceBots.randomRolls(name='Number Rolls'), zombieDiceBots.comparisonZombie(name='Comparison Zombie')
 )
 
 if __name__ == "__main__":

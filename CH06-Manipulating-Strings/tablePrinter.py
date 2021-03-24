@@ -1,11 +1,12 @@
-# Table Printer
-# Write a function named printTable that takes a list of lists of strings.
+# TablePrinter.py
+# Write a function that takes a list of lists of strings
+# Then displays that list in a table with each column right-justified
 
 tableData = [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
              ['dogs', 'cats', 'moose', 'goose']]
              
-# Display the strings in a table with each column right-justified. 
+# Output
 """
   apples Alice  dogs 
  oranges   Bob  cats 
@@ -13,21 +14,20 @@ cherries Carol moose
   banana David goose
 """
 
-def table_Print(table):
-  # Collect list of length of longest string for each inner list
-  colWidths = [0] * len(table)
+def table_print(table):
+  # Collect Length of longest string for each inner list
+  col_widths = [0] * len(table)
 
   for i in range(len(table)):
-    longestString = max(table[i], key = len) 
-    colWidths[i] = len(longestString)
-
-
+    longest_string = max(table[i], key = len) 
+    col_widths[i] = len(longest_string)
   # loop through the table column by column
 
   for x in range(len(table[0])):
-    print() # print statement for spacing
     for y in range(len(table)):
       # Use the longest string and rjust function to give each string proper spacing
-      print(table[y][x].rjust(colWidths[y]),end=' ')
-      
-table_Print(tableData)   
+      print(table[y][x].rjust(col_widths[y]),end=' ')
+    print()
+
+if __name__ == '__main__':     
+  table_print(tableData)   
