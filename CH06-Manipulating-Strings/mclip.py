@@ -1,3 +1,4 @@
+#mclip.py
 # This program takes a command line argument that is associated with a key phrase
 # The keyphrase is then copied to the clipboard 
 
@@ -6,7 +7,6 @@ import sys,pyperclip
 TEXT = {'agree': """Yes, I agree. That sounds fine to me.""",
 'busy': """Sorry, can we do this later this week or next week?""",
 'upsell': """Would you consider making this a monthly donation?"""}
-
 
 if len(sys.argv) < 2:
     # No command line argument was entered
