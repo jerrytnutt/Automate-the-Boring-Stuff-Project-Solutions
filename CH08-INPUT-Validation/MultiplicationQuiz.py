@@ -6,9 +6,9 @@
 import pyinputplus as pyip
 import random, time
 
-correct_answers = 0
-
-for i in range(10):
+def start_quiz():
+  correct_answers = 0
+  for i in range(3):
     num1 = random.randint(0, 9)
     num2 = random.randint(0, 9)
     num3 = num1 * num2
@@ -16,14 +16,24 @@ for i in range(10):
     attempts = 0
     timeout = time.time() + 8
     while attempts < 3:
-      answer = pyip.inputNum('{} x {} = '.format(num1,num2))
-      if time.time() >= timeout:
+      answer = input('{} x {} = '.format(num1,num2))
+      print(type(answer))
+      try:
+        int(answer)
+        if time.time() >= timeout:
           break
-      if answer == num3:
-        print('Correct!')
-        correct_answers += 1
-        time.sleep(1)
-        break
-      else:
+        if int(answer) == num3:
+          print('Correct!')
+          correct_answers += 1
+          time.sleep(1)
+          break
+        else:
+          attempts += 1
+      except:
+        print('Please enter a number')
         attempts += 1
-print("Your score is {}%".format(correct_answers * 10))
+      
+  return "Your score is {}%".format(correct_answers * 10)
+
+if __name__ == "__main__":
+  print(start_quiz())

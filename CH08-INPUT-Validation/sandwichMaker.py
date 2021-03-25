@@ -11,17 +11,17 @@ def order_sandwich():
 
   for i in range(number_of_sandwiches):
     print('What would you like for your bread and protein?\n')
-    breadType = pyip.inputMenu(['wheat', 'white','sourdough'])
-    proteinType = pyip.inputMenu(['chicken', 'turkey', 'ham','tofu'])
+    bread_type = pyip.inputMenu(['wheat', 'white','sourdough'])
+    protein_type = pyip.inputMenu(['chicken', 'turkey', 'ham','tofu'])
 
-    cheeseInput = pyip.inputYesNo('Would you like any cheese?\n')
-    if cheeseInput == 'yes':
-      cheeseType = pyip.inputMenu(['cheddar', 'Swiss','mozzarella'])
+    cheese_input = pyip.inputYesNo('Would you like any cheese?\n')
+    if cheese_input == 'yes':
+      cheese_type = pyip.inputMenu(['cheddar', 'Swiss','mozzarella'])
     else:
-      cheeseType = 'no'
+      cheese_type = 'no'
 
     mayo_input = pyip.inputYesNo('Would You Like any Mayo? ')
-    mustard_input = pyip.inputYesNo('Would You Like any Mustard? ')
+    mustard_input = pyip.inputYesNo('Would You Like any Mustard?')
     lettece_input = pyip.inputYesNo('Would You Like any Lettece? ')
     tomato_input = pyip.inputYesNo('Would You Like any Toamato? ')
 
@@ -35,7 +35,7 @@ def order_sandwich():
 
     
     # Append newly created sandwich to sandwich list
-    sandwich_list.append([proteinType,breadType,cheeseType,included_extras])
+    sandwich_list.append([protein_type,bread_type,cheese_type,included_extras])
 
   for sandwiches in sandwich_list:
     # Set price based on meat and cheese
