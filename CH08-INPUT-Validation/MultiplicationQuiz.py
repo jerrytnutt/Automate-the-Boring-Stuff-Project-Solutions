@@ -5,7 +5,7 @@
 
 import pyinputplus as pyip
 import random, time
-#3
+#34
 def start_quiz():
   correct_answers = 0
   for i in range(3):
