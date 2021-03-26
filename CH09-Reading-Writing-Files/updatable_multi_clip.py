@@ -8,22 +8,22 @@
 import pyperclip, shelve
 import sys
 
-#Create new data shelve
+# Create new data shelve
 mcbShelf = shelve.open('mcb')
 
-
-#check length of sys.argv for clipboard action
+# Check length of sys.argv for clipboard action
 def update_clipboard():
+  responce = None
   if len(sys.argv) == 2:
     argument = sys.argv[1].lower()
     if argument == 'list':
-        print(list(mcbShelf.items()))
+      return list(mcbShelf.items())
     else:
       # If there is no command check if the keyword exist in the shelf, then copy to the paperclip
       if argument in mcbShelf.keys():
-        pyperclip.copy(mcbShelf[argument])
+        return pyperclip.copy(mcbShelf[argument])
       else:
-        print('This keyword has not been recorded')
+        responce = 'This keyword has not been recorded.'
   
   elif len(sys.argv) == 3:
     keyword = sys.argv[2].lower()
@@ -35,32 +35,34 @@ def update_clipboard():
           answer = input('Would you like to overide it Y/N?: ')
           if answer.lower() == 'y':
             mcbShelf[keyword] = pyperclip.paste()
-            print("{} saved as {}".format(keyword,mcbShelf[keyword]))
+            return "{} saved as {}".format(keyword,mcbShelf[keyword])
           else:
-              print('{} will remain as: {}'.format(keyword,mcbShelf[keyword]))
+              return '{} will remain as: {}'.format(keyword,mcbShelf[keyword])
         else:
             mcbShelf[keyword] = pyperclip.paste()
-            print("{} saved as {}".format(keyword,mcbShelf[keyword]))
+            return "{} saved as {}".format(keyword,mcbShelf[keyword])
     # The option is given to delete the selected keyword or the entire database      
     elif  argument == 'delete':
       if sys.argv[2].lower() in mcbShelf.keys():
         answer = input('Would you like to delete selected keyword or clear all entries? Keyword/All: ')
         if answer.lower() == 'keyword':
-          print(keyword)
           del mcbShelf[keyword]
+          return '{} has been removed.'.format(keyword)
         elif answer.lower() == 'all':
           mcbShelf.clear()
+          return 'The data base has been cleared.'
       else:
-    print('Please include a keyword.')
+        responce = 'Please include a keyword.'
 
   else:
-    print('Please include a keyword.')
-  # Close the shelve
-  mcbShelf.close()
+    responce = 'Please include a keyword.'
+  return responce
   
 
 if __name__ == "__main__":
-  update_clipboard()  
+  print( update_clipboard() )
+  # Close the shelve
+  mcbShelf.close() 
 
 
 
