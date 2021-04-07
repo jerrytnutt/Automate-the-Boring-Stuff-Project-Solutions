@@ -5,42 +5,36 @@
 import os
 import zipfile
 
-# Increment number for zip files 
-num = 1
-
-def backupToZip(path):
-  global num
+def backup_to_zip(path):
+  num = 1
   # While loop to check if a zip file has already been created
   while True:
+   
     base_name = os.path.basename(path)
-    name = base_name +'_'+str(num)
+    file_name = base_name +'_'+str(num)
 
-    # Folder path with the zip file and current num
-    zip_path = path+"\\"+name+".zip"
+    zip_path = path+"\\"+file_name+".zip"
     
     # Num will increment until a zip file with that num does not exist
     if not os.path.exists(zip_path):
       break
     else:
       num = num + 1
-  # Create a zip file with current base name and num increment
-
   with zipfile.ZipFile(zip_path,'w') as new_zip:
-    # Use os.walk to walk the folder and all subfolders
+    
     for folders, subfolders, filenames in os.walk(path):
-      
       print("You are now in folder: {}".format(folders))
-      
       new_zip.write(folders)
+
       for files in filenames:
         print("You are now in file: {}".format(files))
         
       # Do not zip the previous zip files
         if files.endswith('.zip') and files.startswith(base_name):
-          print('skip')
+          pass
         else:
           new_zip.write(os.path.join(folders, files))
     return path
         
-          
-backupToZip(r"C:\Users\jerry\Documents\chapter9\autor")
+if __name__ == '__main__':         
+  backup_to_zip(path)

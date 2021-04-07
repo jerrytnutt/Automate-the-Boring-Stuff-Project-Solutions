@@ -6,11 +6,12 @@ import os, sys, re
 import shutil
 
 # Create path for current working directory
-path = os.getcwd()
+#path = os.getcwd()
+path = r"C:\Users\jerry\Documents\chapter9\dates"
 # Create list of the file pathway
 dirs = os.listdir(path)
 # Create New folder pathway for the euro dates
-euroPath = path+"\\"+"Eurodates"
+euro_path = path+"\\"+"Eurodates"
 
 #Create Regex for American-Style dates passing re.VERBOSE for comment space
 
@@ -24,20 +25,23 @@ pattern = re.compile("""
 
 # Loop through the files and begin to search
 for files in dirs:
-   matches = pattern.finditer(files)
-   # loop through files that matches regex
-   for match in matches:
+  matches = pattern.finditer(files)
+
+  for match in matches:
      # Split the match array and rearrange for european style date
-     matchSplit = match[0].split('-')
-     matchFinal = matchSplit[1]+'-'+matchSplit[0]+'-'+matchSplit[2]
-     euroDate = files.replace(match[0],matchFinal)
+    match_split = match[0].split('-')
+    match_final = match_split[1]+'-'+match_split[0]+'-'+match_split[2]
+    euro_date = files.replace(match[0],match_final)
      # Set the file pathways for the Source and the Destination
-     sourceP = path+"\\"+files
+    
+    original_location = os.path.join(path,files)
      # Create path for eurofolder
-     destinationP = euroPath+"\\"+euroDate
+    destination = os.path.join(euro_path,euro_date)
+    print(original_location)
+    print(destination)
      
      # Move the file to their new location with corrected title
-     shutil.move(set1, set2)
+    shutil.move(original_location, destination)
 
 
      
