@@ -1,5 +1,5 @@
 # Mad Libs
-# Create a Mad Libs program that reads in text files and lets the user add their own text 
+# Mad Libs program that reads in text files and lets the user add their own text 
 # Promot User to replace the words ADJECTIVE, NOUN, ADVERB, or VERB
 # The results should be printed to the screen and saved to a new text file
 
