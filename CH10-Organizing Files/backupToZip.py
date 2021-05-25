@@ -9,7 +9,6 @@ def backup_to_zip(path):
   num = 1
   # While loop to check if a zip file has already been created
   while True:
-   
     base_name = os.path.basename(path)
     file_name = base_name +'_'+str(num)
 
@@ -21,7 +20,6 @@ def backup_to_zip(path):
     else:
       num = num + 1
   with zipfile.ZipFile(zip_path,'w') as new_zip:
-    
     for folders, subfolders, filenames in os.walk(path):
       print("You are now in folder: {}".format(folders))
       new_zip.write(folders)
@@ -37,4 +35,4 @@ def backup_to_zip(path):
     return path
         
 if __name__ == '__main__':         
-  backup_to_zip(path)
+  backup_to_zip(r"C:\Users\jerry\Documents\chapter9\autor")

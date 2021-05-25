@@ -2,9 +2,9 @@
 # Walks through a folder tree looking for exceptionally large files/folders, Size > 100MB
 # Print these files with their absolute path to the screen
 
-import shutil, os
+import os
 
-for folderName, subfolders, filenames in os.walk(path):
+for folderName, subfolders, filenames in os.walk("PATH"):
     print('Current Folder: ' + folderName)
     for subfolder in subfolders:
         pass
@@ -15,7 +15,3 @@ for folderName, subfolders, filenames in os.walk(path):
       # The size must therefore exceed 104,857,600 to be greater than 100MB
       if file_size > 104_857_600:
         print('File with path {} has a size {} Exceeding 100MB'.format(file_path,file_size))
-          
-
-    
-

@@ -3,8 +3,6 @@
 # Write another program that inserts gaps into numbered files so that a new file can be added.
 
 import os
-# Add a path for the files to be searched in
-directory_path = r'C:\Users\jerry\Documents\cop\old\sam'
 
 def locate_gaps(directory_path):
   current_num = 1
@@ -19,7 +17,6 @@ def locate_gaps(directory_path):
         current_num = current_num + 1
       else :
         old_path = os.path.join(directory_path,filename)
-        
         # Give the file the current_num integer
         filename = filename[:index] + str(current_num) + filename[index + 1:]
         # After the file is given current_num the file is now in order and will be renamed
@@ -47,5 +44,5 @@ def create_gap(directory_path,gap_num):
     
   return directory_path
     
-
-create_gap(directory_path,3)
+if __name__ == "__main__":
+  locate_gaps("PATH")
