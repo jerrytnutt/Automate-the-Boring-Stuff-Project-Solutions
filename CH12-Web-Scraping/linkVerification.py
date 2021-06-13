@@ -29,5 +29,4 @@ def verify_links(main_page):
   return main_page
   
 if __name__ == '__main__':
-  verify_links('https://www.georgiaaquarium.org/')
-   
+  verify_links('https://www.georgiaaquarium.org/') 
