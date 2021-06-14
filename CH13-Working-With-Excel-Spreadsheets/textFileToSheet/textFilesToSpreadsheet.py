@@ -9,7 +9,7 @@ def spread_to_text():
   workbook = Workbook()
   sheet = workbook.active
 
-  path = r"C:\Users\jerry\Documents\chapter13\textfiles"
+  path = "Path with text files"
   files = os.listdir(path)
 
   column = 0

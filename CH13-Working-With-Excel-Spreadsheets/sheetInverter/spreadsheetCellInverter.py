@@ -2,7 +2,6 @@
 # The value at row 5, column 3 will be at row 3, column 5 (and vice versa).
 
 from openpyxl import load_workbook, Workbook
-import sys
 
 def invert_sheet():
   workbook = load_workbook('invertedSheetBefore.xlsx')

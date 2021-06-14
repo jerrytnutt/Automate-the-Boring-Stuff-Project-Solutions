@@ -2,13 +2,11 @@
 # The cells of column B into another text file, and so on.
 
 from openpyxl import load_workbook
-import os
 
 def spread_to_text():
   workbook = load_workbook('spreadsheetToTextFiles.xlsx')
   sheet = workbook.active 
-  inventory_list = []
-
+  
   max_row = sheet.max_row
   max_column = sheet.max_column
   

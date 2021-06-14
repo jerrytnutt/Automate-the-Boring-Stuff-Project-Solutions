@@ -1,5 +1,6 @@
 # Create a program that takes a number N from the command line
-# And creates an N×N multiplication table in an Excel spreadsheet. 
+# Creates an N×N multiplication table in an Excel spreadsheet. 
+
 from openpyxl import Workbook
 from openpyxl.styles import Font
 import sys
@@ -35,5 +36,3 @@ if __name__ == "__main__":
       print("Please enter a number")
   else:
     print('Please enter a number')
-  
- 
